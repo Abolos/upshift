@@ -1,6 +1,6 @@
 services:
   upshift:
-    image: 'ghcr.io/exceev-technology/upshift:${TAG:-latest}'
+    image: 'ghcr.io/abolos/upshift:${TAG:-latest}'
     labels:
       # Coolify only fills ${...} in labels once "Escape special characters in labels?" is unticked on the resource
       - 'traefik.http.middlewares.upshift-cors.headers.accessControlAllowOriginListRegex=${TRAEFIK_CORS_ORIGIN_REGEX:?}'
@@ -51,7 +51,7 @@ services:
     restart: always
 
   worker:
-    image: 'ghcr.io/exceev-technology/upshift:${TAG:-latest}'
+    image: 'ghcr.io/abolos/upshift:${TAG:-latest}'
     command: ['yarn', 'worker:prod']
     environment:
       - 'SERVER_URL=${SERVER_URL:?}'
